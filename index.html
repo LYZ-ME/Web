@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 移动端优化meta标签 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#ffbb35">
+    <meta name="format-detection" content="telephone=no">
+    
+    <title>LYZ</title>
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 初始隐藏非介绍页面 */
+        #download, #tutorial, #article-detail, #game, #portfolio {
+            display: none;
+        }
+        #intro {
+            display: block;
+        }
+        
+        /* 移动端特定样式 */
+        @media (max-width: 768px) {
+            :root {
+                --safe-area-inset-top: env(safe-area-inset-top, 0px);
+                --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+            }
+            
+            body {
+                padding-left: calc(10px + var(--safe-area-inset-left, 0px));
+                padding-right: calc(10px + var(--safe-area-inset-right, 0px));
+            }
+            
+            .container {
+                padding-top: calc(75px + var(--safe-area-inset-top, 0px));
+            }
+            
+            .top-nav {
+                top: calc(15px + var(--safe-area-inset-top, 0px));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶栏导航 - 桌面版显示完整菜单 -->
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="user.jpeg" alt="头像" style="width: 36px; height: 36px; border-radius: 50%; margin-right: 10px;">
+                    <span>LYZ</span>
+                </div>
+                <!-- 桌面导航链接部分 - 移动端隐藏 -->
+                <div class="nav-links">
+                    <a href="#intro" class="nav-link active" data-page="intro">
+                        <i class="fas fa-user"></i>
+                        <span>介绍</span>
+                    </a>
+                    <a href="#download" class="nav-link" data-page="download">
+                        <i class="fas fa-download"></i>
+                        <span>下载</span>
+                    </a>
+                    <a href="#tutorial" class="nav-link" data-page="tutorial">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>教程</span>
+                    </a>
+                    <!-- 在游戏链接后添加作品链接 -->
+                    <a href="#portfolio" class="nav-link" data-page="portfolio">
+                        <i class="fas fa-briefcase"></i>
+                        <span>作品</span>
+                    </a>
+                    <!-- 添加游戏链接 -->
+                    <a href="#game" class="nav-link" data-page="game">
+                        <i class="fas fa-gamepad"></i>
+                        <span>游戏</span>
+                    </a>
+                </div>
+                <!-- 移动端汉堡菜单按钮 - 已不再需要，保留但隐藏 -->
+                <div class="nav-toggle" id="navToggle" style="display: none;">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- 背景图层 -->
+        <div class="background-area">
+            <div class="bg-shape shape1"></div>
+            <div class="bg-shape shape2"></div>
+            <div class="bg-shape shape3"></div>
+            <div class="bg-shape shape4"></div>
+        </div>
+        
+        <!-- 页面内容区域 -->
+        <div class="page-content">
+            <!-- 介绍页面 -->
+            <div id="intro" class="page active">
+                <main class="main-content">
+                    <!-- 个人信息卡片 -->
+                    <section class="glass-card profile-section">
+                        <div class="avatar-container">
+                            <div class="avatar-frame">
+                                <img src="user.jpeg" alt="个人头像" class="avatar">
+                            </div>
+                            <div class="avatar-glow"></div>
+                        </div>
+                        
+                        <h1 class="name">LYZ</h1>
+                        <p class="title">UP主</p>
+                        <p class="bio">专注于分享实用技巧，测评各类软件，推荐实用软件等</p>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>lyz12151215@outlook.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>中国，上海</span>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- 技能与兴趣卡片 -->
+                    <section class="glass-card skills-section">
+                        <h2><i class="fas fa-star"></i> 技能与专长</h2>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-name">剪辑</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Scratch</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">C++</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h2><i class="fas fa-heart"></i> 兴趣爱好</h2>
+                        <div class="hobbies">
+                            <span class="hobby-tag">编程</span>
+                            <span class="hobby-tag">学习</span>
+                            <span class="hobby-tag">电子</span>
+                            <span class="hobby-tag">音乐</span>
+                        </div>
+                    </section>
+                    
+                    <!-- 社交媒体链接卡片 -->
+                    <section class="glass-card social-section">
+                        <h2><i class="fas fa-share-alt"></i> 关注与联系</h2>
+                        <p class="section-desc">欢迎通过以下平台与我交流，关注我的最新动态和技巧分享。</p>
+                        
+                        <div class="social-links">
+                            <a href="https://www.xiaohongshu.com/user/profile/66eabe82000000001d023906" target="_blank" class="social-btn github-btn">
+                                <i class="fas fa-book-open"></i>
+                                <span>小红书</span>
+                            </a>
+                            
+                            <a href="https://space.bilibili.com/3546608245409827?spm_id_from=333.1007.0.0" target="_blank" class="social-btn github-btn">
+                                <i class="fab fa-bilibili"></i>
+                                <span>哔哩哔哩</span>
+                            </a>
+                            
+                            <a href="https://github.com/lyz12151215" target="_blank" class="social-btn github-btn">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            
+            <!-- 下载页面 -->
+            <div id="download" class="page">
+                <main class="main-content">
+                    <section class="glass-card download-section">
+                        <h2><i class="fas fa-download"></i> 下载资源</h2>
+                        <p class="section-desc">这里提供我分享的软件资源。</p>
+                        
+                        <div class="download-items">
+                            <div class="download-item">
+                                <div class="download-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h3>Office激活工具（MAC）</h3>
+                                <p>只需安装就可使你的Office成功激活，过程十分简单。使用方法详见教程。</p>
+                                <div class="download-info">
+                                    <span class="file-size">7 MB</span>
+                                    <span class="file-format">.iso</span>
+                                </div>
+                                <button class="download-btn" data-download-url="https://share.feijipan.com/s/QPZqPPsL?code=LYZ6">
+                                    <i class="fas fa-download"></i>
+                                    下载(小飞机网盘)
+                                </button>
+                            </div>
+                            
+                            <div class="download-item">
+                                <div class="download-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>电脑工具 iPad&iPhone破解功能软件</h3>
+                                <p>使用方法详见教程。</p>
+                                <div class="download-info">
+                                    <span class="file-size">77 MB</span>
+                                    <span class="file-format">.zip</span>
+                                </div>
+                                <button class="download-btn" data-download-url="https://share.feijipan.com/s/X1ZqP2yW?code=LYZ6">
+                                    <i class="fas fa-download"></i>
+                                    下载(小飞机网盘)
+                                </button>
+                            </div>
+                            
+                            <div class="download-item">
+                                <div class="download-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <h3>安卓系统灵动岛软件(破解版)</h3>
+                                <p>在安卓设备上体验苹果的灵动岛。使用方法详见教程。</p>
+                                <div class="download-info">
+                                    <span class="file-size">9 MB</span>
+                                    <span class="file-format">.apk</span>
+                                </div>
+                                <button class="download-btn" data-download-url="https://share.feijipan.com/s/dQZqP5om?code=LYZ6">
+                                    <i class="fas fa-download"></i>
+                                    下载(小飞机网盘)
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            
+            <!-- 教程页面 -->
+            <div id="tutorial" class="page">
+                <main class="main-content">
+                    <section class="glass-card tutorial-section">
+                        <h2><i class="fas fa-graduation-cap"></i> 教程与文章</h2>
+                        <p class="section-desc">分享电子设备实用技巧。</p>
+                        
+                        <div class="tutorial-list">
+                            
+                            <div class="tutorial-item" data-article-id="Office激活工具使用教程">
+                                <div class="tutorial-img" style="background-image: url('images/office.jpeg');"></div>
+                                <div class="tutorial-content">
+                                    <h3>Office激活工具使用教程</h3>
+                                    <p>详细讲解如何在Mac上使用Office激活工具，包含每一步的操作说明和注意事项。</p>
+                                    <div class="tutorial-meta">
+                                        <div class="meta-item">
+                                            <i class="far fa-clock"></i>
+                                            <span>10分钟阅读</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-file"></i>
+                                            <span>软件教程</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tutorial-item" data-article-id="电脑工具软件破解指南">
+                                <div class="tutorial-img" style="background-image: url('images/misakaX.png');"></div>
+                                <div class="tutorial-content">
+                                    <h3>misakaX软件使用指南</h3>
+                                    <p>讲解如何使用电脑工具为iPad和iPhone设备解锁功能，详细步骤和注意事项。</p>
+                                    <div class="tutorial-meta">
+                                        <div class="meta-item">
+                                            <i class="far fa-clock"></i>
+                                            <span>20分钟阅读</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-mobile-alt"></i>
+                                            <span>设备破解</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tutorial-item" data-article-id="安卓灵动岛软件配置教程">
+                                <div class="tutorial-img" style="background-image: url('images/ldd.jpeg');"></div>
+                                <div class="tutorial-content">
+                                    <h3>安卓灵动岛软件配置教程</h3>
+                                    <p>在安卓设备上安装和配置灵动岛软件的完整指南，包含个性化设置和故障排除。</p>
+                                    <div class="tutorial-meta">
+                                        <div class="meta-item">
+                                            <i class="far fa-clock"></i>
+                                            <span>15分钟阅读</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-robot"></i>
+                                            <span>安卓定制</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tutorial-cta">
+                            <p>想要查看更多教程？欢迎关注我的社交媒体账号获取最新内容！</p>
+                            <button class="back-home-btn" data-page="intro">
+                                <i class="fas fa-arrow-left"></i>
+                                返回介绍
+                            </button>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            
+            <!-- 文章详情页面 -->
+            <div id="article-detail" class="page">
+                <main class="main-content">
+                    <section class="glass-card article-section">
+                        <div class="article-header">
+                            <button class="back-to-tutorial-btn" data-page="tutorial">
+                                <i class="fas fa-arrow-left"></i>
+                                返回教程列表
+                            </button>
+                            <h2 id="article-title">文章标题</h2>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i> <span id="article-date">日期</span></span>
+                                <span><i class="far fa-clock"></i> <span id="article-read-time">阅读时间</span></span>
+                                <span><i class="fas fa-tag"></i> <span id="article-category">分类</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-image" id="article-image">
+                            <!-- 图片将通过JS动态设置 -->
+                        </div>
+                        
+                        <div class="article-content" id="article-content">
+                            <!-- 文章内容将通过JS动态加载 -->
+                        </div>
+                        
+                        <div class="article-footer">
+                            <button class="download-article-btn" id="downloadArticleBtn">
+                                <i class="fas fa-download"></i>
+                                前往下载相关软件
+                            </button>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            
+            <!-- 作品页面 -->
+            <div id="portfolio" class="page">
+                <main class="main-content">
+                    <section class="glass-card portfolio-section">
+                        <h2><i class="fas fa-briefcase"></i> 我的作品集</h2>
+                        <p class="section-desc">这里展示我的个人项目和创作成果，每个项目都包含详细的技术实现和应用场景。</p>
+                        
+                        <div class="portfolio-list">
+                            <!-- 作品项 1 - 与教程页格式一致 -->
+                            <div class="tutorial-item" data-article-id="personal-portfolio">
+                                <div class="tutorial-img" style="background-image: linear-gradient(135deg, rgba(255, 187, 53, 0.8), rgba(255, 170, 86, 0.8));">
+                                    <i class="fas fa-globe" style="font-size: 3rem; color: white;"></i>
+                                </div>
+                                <div class="tutorial-content">
+                                    <h3>个人作品集网站</h3>
+                                    <p>使用HTML5、CSS3和JavaScript创建的响应式个人作品展示网站，采用毛玻璃设计风格。</p>
+                                    <div class="tutorial-meta">
+                                        <div class="meta-item">
+                                            <i class="far fa-clock"></i>
+                                            <span>2024年3月</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-code"></i>
+                                            <span>前端开发</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-tag"></i>
+                                            <span>HTML/CSS/JS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <!-- 作品项 2 -->
+                            <div class="tutorial-item" data-article-id="utility-tools">
+                                <div class="tutorial-img" style="background-image: linear-gradient(135deg, rgba(33, 150, 243, 0.8), rgba(21, 101, 192, 0.8));">
+                                    <i class="fas fa-tools" style="font-size: 3rem; color: white;"></i>
+                                </div>
+                                <div class="tutorial-content">
+                                    <h3>Scratch伪系统</h3>
+                                    <p>开发了一系列Scratch伪系统，包括lOS等。</p>
+                                    <div class="tutorial-meta">
+                                        <div class="meta-item">
+                                            <i class="far fa-clock"></i>
+                                            <span>2023年12月</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-toolbox"></i>
+                                            <span>伪系统</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-tag"></i>
+                                            <span>Scratch(TurboWarp)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="tutorial-cta">
+                            <p>想要查看更多项目或合作机会？欢迎通过邮件或社交媒体与我联系！</p>
+                            <button class="back-home-btn" data-page="intro">
+                                <i class="fas fa-arrow-left"></i>
+                                返回介绍
+                            </button>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            
+            <!-- 游戏页面 -->
+            <div id="game" class="page">
+                <main class="main-content">
+                    <section class="glass-card game-section">
+                        <h2><i class="fas fa-gamepad"></i> 贪吃蛇游戏</h2>
+                        <p class="section-desc">经典的贪吃蛇游戏，使用方向键控制蛇的移动，吃到食物变长，碰到墙壁或自己身体游戏结束。</p>
+                        
+                        <!-- 游戏控制面板 -->
+                        <div class="game-controls">
+                            <!-- 游戏信息区域 -->
+                            <div class="game-info">
+                                <div class="score-display">
+                                    <i class="fas fa-star"></i>
+                                    <div class="score-info">
+                                        <span class="score-label">得分</span>
+                                        <span class="score-value" id="score">0</span>
+                                    </div>
+                                </div>
+                                <div class="high-score-display">
+                                    <i class="fas fa-trophy"></i>
+                                    <div class="high-score-info">
+                                        <span class="high-score-label">最高分</span>
+                                        <span class="high-score-value" id="highScore">0</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <!-- 游戏按钮组 -->
+                            <div class="game-buttons">
+                                <button id="startGame" class="icon-btn start-btn" title="开始游戏">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button id="pauseGame" class="icon-btn pause-btn" disabled title="暂停">
+                                    <i class="fas fa-pause"></i>
+                                </button>
+                                <button id="restartGame" class="icon-btn restart-btn" title="重新开始">
+                                    <i class="fas fa-redo"></i>
+                                </button>
+                                <button id="backHome" class="icon-btn home-btn" data-page="intro" title="返回介绍">
+                                    <i class="fas fa-home"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 隐藏的难度选择器 -->
+                        <select id="difficulty" class="difficulty-selector" style="display: none;">
+                            <option value="easy">简单</option>
+                            <option value="medium" selected>中等</option>
+                            <option value="hard">困难</option>
+                            <option value="expert">专家</option>
+                        </select>
+                        
+                        <!-- 游戏画布和方向控制按钮的横向布局容器 -->
+                        <div class="game-and-controls-container">
+                            <!-- 游戏画布容器 -->
+                            <div class="game-container">
+                                <canvas id="gameCanvas" width="600" height="400"></canvas>
+                                <div id="gameOver" class="game-over-screen">
+                                    <h3>游戏结束!</h3>
+                                    <p>最终得分: <span id="finalScore">0</span></p>
+                                    <button id="playAgain" class="icon-btn start-btn" style="width: 60px; height: 60px; font-size: 1.5rem;" title="再玩一次">
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+                                </div>
+                                <div id="gameStart" class="game-start-screen">
+                                    <h3>贪吃蛇游戏</h3>
+                                    <p>使用方向键 ↑ ↓ ← → 控制蛇的移动</p>
+                                    <p>吃到食物得分，碰到墙壁或自己身体游戏结束</p>
+                                    <button id="startFromScreen" class="icon-btn start-btn" style="width: 60px; height: 60px; font-size: 1.5rem;" title="开始游戏">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 移动设备方向控制按钮 -->
+                            <div class="mobile-controls">
+                                <div class="direction-controls">
+                                    <button class="direction-btn up-btn" id="upBtn" title="向上">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </button>
+                                    <div class="horizontal-controls">
+                                        <button class="direction-btn left-btn" id="leftBtn" title="向左">
+                                            <i class="fas fa-arrow-left"></i>
+                                        </button>
+                                        <button class="direction-btn down-btn" id="downBtn" title="向下">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </button>
+                                        <button class="direction-btn right-btn" id="rightBtn" title="向右">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="control-hint">
+                                    <p><i class="fas fa-mobile-alt"></i> 移动设备可使用方向按钮控制</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 游戏说明 -->
+                        <div class="game-instructions">
+                            <h3><i class="fas fa-info-circle"></i> 游戏说明</h3>
+                            <div class="instructions-grid">
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">
+                                        <i class="fas fa-keyboard"></i>
+                                    </div>
+                                    <div class="instruction-text">
+                                        <h4>电脑控制</h4>
+                                        <p>键盘方向键 ↑ ↓ ← → 控制蛇的移动方向</p>
+                                    </div>
+                                </div>
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="instruction-text">
+                                        <h4>手机控制</h4>
+                                        <p>使用屏幕上的方向按钮控制蛇的移动</p>
+                                    </div>
+                                </div>
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">
+                                        <i class="fas fa-apple-alt"></i>
+                                    </div>
+                                    <div class="instruction-text">
+                                        <h4>食物</h4>
+                                        <p>吃到红色食物得10分，蛇身长度+1</p>
+                                    </div>
+                                </div>
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <div class="instruction-text">
+                                        <h4>得分规则</h4>
+                                        <p>每吃一个食物得10分，每500分升一级</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2025 LYZ - 个人介绍页面</p>
+            <p class="footer-links">
+                <a href="mailto:lyz12151215@outlook.com">联系我</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
